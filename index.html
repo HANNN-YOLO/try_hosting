@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Supabase CRUD Realtime</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Supabase CRUD + Realtime + Storage</h1>
+
+    <!-- Form tambah -->
+    <form id="addForm">
+      <input type="text" id="nama" placeholder="Nama" required>
+      <input type="number" id="umur" placeholder="Umur" required>
+      <input type="file" id="gambar" accept="image/*" required>
+      <button type="submit">Tambah</button>
+    </form>
+
+    <!-- List data -->
+    <div id="dataList"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
