@@ -1,0 +1,17 @@
+// {
+//   "name": "try-hosting-with-supabase-v2",
+//   "compatibility_date": "2025-08-13",
+//   "assets": {
+//     "directory": "./"
+//   }
+// }
+
+{
+  "name": "try-hosting-with-supabase-v2",
+  "compatibility_date": "2025-08-13",
+  "main": "index.js",
+  "vars": {
+    "SUPABASE_URL": "https://lhwicvwatoiafbtgludo.supabase.co",
+    "SUPABASE_SERVICE_ROLE": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxod2ljdndhdG9pYWZidGdsdWRvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NTA0MTQ4NCwiZXhwIjoyMDcwNjE3NDg0fQ.v6Bu-aS9vtxxn1_IPG8zRObBrg72nilMOBsUpTU9N94"
+  }
+}

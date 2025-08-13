@@ -32,25 +32,45 @@ addForm.addEventListener("submit", async (e) => {
     .from(BUCKET)
     .getPublicUrl(filePath);
 
-  // Simpan metadata ke tabel
-  const { error: insertError } = await supabase
-    .from("test_crud")
-    .insert([{ nama, umur, gambar_profile: publicUrlData.publicUrl, created_at: new Date() }]);
+  // Simpan metadata ke tabel versi lama
+  // const { error: insertError } = await supabase
+  //   .from("test_crud")
+  //   .insert([{ nama, umur, gambar_profile: publicUrlData.publicUrl, created_at: new Date() }]);
 
-  if (insertError) {
-    alert("Gagal menyimpan data!");
-    console.error(insertError);
-  } else {
-    addForm.reset();
-  }
+//   // Simpan metadata ke tabel versi lama sambungan dari line 35
+//   if (insertError) {
+//     alert("Gagal menyimpan data!");
+//     console.error(insertError);
+//   } else {
+//     addForm.reset();
+//   }
+// });
+// Simpan metadata ke tabel versi baru
+      await fetch("/api/insert", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    nama,
+    umur,
+    gambar_profile: publicUrlData.publicUrl,
+    created_at: new Date()
+  })
 });
+  addForm.reset();
+  });
 
 // Read data realtime
 async function loadData() {
-  const { data, error } = await supabase.from("test_crud").select("*").order("id");
-  if (!error) {
-    renderData(data);
-  }
+  // versi lama
+  // const { data, error } = await supabase.from("test_crud").select("*").order("id");
+  // if (!error) {
+  //   renderData(data);
+  // }
+
+  // versi baru
+  const res = await fetch("/api/select");
+const data = await res.json();
+renderData(data);
 }
 
 function renderData(rows) {
@@ -69,8 +89,12 @@ function renderData(rows) {
 
 // Delete data
 async function deleteData(id) {
-  const { error } = await supabase.from("test_crud").delete().eq("id", id);
-  if (error) console.error(error);
+  // versi lama
+  // const { error } = await supabase.from("test_crud").delete().eq("id", id);
+  // if (error) console.error(error);
+
+  // versi baru
+  await fetch(`/api/delete/${id}`, { method: "DELETE" });
 }
 
 // Realtime listener
