@@ -1,0 +1,1 @@
+I'm trying to combine Cloudflare Pages with SupaBase via Github to be able to run an alternative version of Firebase to be able to customize the contents of the Storage module with the Hosting module.
