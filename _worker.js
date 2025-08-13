@@ -7,7 +7,7 @@ export default {
     if (url.pathname === "/") {
     //   return env.ASSETS.fetch(request);
     // return fetch("https://try-hosting-with-supabase-v4.iblis150980.workers.dev/");
-    return fetch("https://try-hosting-with-supabase-v4.pages.dev/");
+    return fetch("https://try-hosting-with-supabase-v5.pages.dev/");
 
     }
 
