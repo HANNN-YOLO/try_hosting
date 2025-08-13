@@ -7,7 +7,7 @@
 // }
 
 {
-  "name": "try-hosting-with-supabase-v5",
+  "name": "try-hosting-with-supabase",
   "compatibility_date": "2025-08-13",
   "main": "_worker.js",
   "vars": {
