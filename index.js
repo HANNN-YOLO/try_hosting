@@ -3,6 +3,12 @@ export default {
     const url = new URL(request.url);
     const method = request.method;
 
+        // Serve halaman HTML
+    if (url.pathname === "/") {
+      const html = await env.ASSETS.fetch(request); // ambil dari folder assets
+      return html;
+    }
+
     // Routing sederhana
     if (url.pathname === "/api/insert" && method === "POST") {
       return await handleInsert(request, env);

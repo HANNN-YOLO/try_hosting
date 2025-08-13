@@ -3,6 +3,8 @@ const SUPABASE_URL = "https://lhwicvwatoiafbtgludo.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxod2ljdndhdG9pYWZidGdsdWRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUwNDE0ODQsImV4cCI6MjA3MDYxNzQ4NH0.GAch-_FHbEC7njaMlJizSP0fC_bQLFGooKagxo27N0w";
 const BUCKET = "test_crud_test1";
 
+// Supabase client untuk upload file
+const { createClient } = window.supabase;
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const dataList = document.getElementById("dataList");
@@ -57,6 +59,7 @@ addForm.addEventListener("submit", async (e) => {
   })
 });
   addForm.reset();
+  loadData();
   });
 
 // Read data realtime
@@ -95,6 +98,7 @@ async function deleteData(id) {
 
   // versi baru
   await fetch(`/api/delete/${id}`, { method: "DELETE" });
+  loadData();
 }
 
 // Realtime listener
